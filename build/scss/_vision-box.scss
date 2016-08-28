@@ -22,34 +22,61 @@
 
     strong {
       background-color: white;
-      color: $panel-color;
       border-color: $panel-color;
+      color: $panel-color;
     }
   }
 }
 
 .vision-box {
   display: flex;
-  width: 80%;
+  flex-direction: column;
+  height: 75vh;
+  overflow: hidden;
+  width: 100%;
+  transition: height 1s;
+
+  .nav-drawer--open + & {
+    height: 0;
+  }
+
+  @include bp(medium) {
+    flex-direction: row;
+    height: auto;
+    width: 80%;
+  }
 }
 
 .vision-box__item {
   color: map-get($colour, white);
   cursor: pointer;
-  padding-top: 33%;
+  height: 25vh;
+  overflow: hidden;
   position: relative;
   text-align: center;
-  transition: width 1s, opacity 0.3s, padding-top 1s;
-  width: 33.33%;
+  transition: width 1s, height 1s, opacity 0.3s, padding-top 1s;
+  width: 100%;
   z-index: 0;
 
+  @include bp(medium) {
+    height: 100vh;
+    width: 33.33%;
+  }
+
   &--closed {
-    width: 0;
+    height: 0;
+    @include bp(medium) {
+      height: 100vh;
+      width: 0;
+    }
   }
 
   &--open {
-    width: 100%;
+    height: 100vh;
+    cursor: default;
     padding-top: 20px;
+    width: 100%;
+    overflow: scroll;
   }
 
   &--jesus {
@@ -68,27 +95,49 @@
 .vision-box__item__link {
   color: map-get($colour, white);
   display: inherit;
-  padding: 10px;
   opacity: 1;
+  position: absolute;
   transition: opacity 0.5s;
   text-decoration: none;
+  width: 100%;
+
+  @include bp(medium) {
+    padding: 10px;
+  }
 }
 
 .vision-box__item__title {
-  font-size: 2em;
+  align-items: center;
+  display: flex;
+  font-size: 1.5em;
+  flex-direction: column;
+  height: 25vh;
+  justify-content: center;
   line-height: 150%;
   letter-spacing: 3px;
   margin: 0 auto;
-  max-width: 220px;
+  max-width: 160px;
+  opacity: 1;
+  position: relative;
   text-transform: uppercase;
   transition: opacity 0.3s;
-  opacity: 1;
+
+  @include bp(medium) {
+    font-size: 2em;
+    height: 100vh;
+    max-width: 220px;
+    transition: height 1s;
+
+    .vision-box__item--open & {
+      height: 25vh;
+    }
+  }
 
   .vision-box__item--closed & {
     opacity: 0;
   }
 
-  span {
+  strong {
     border: 2px solid white;
     clear: both;
     display: table;
@@ -100,33 +149,65 @@
 }
 
 .vision-box__item__core-content {
+  background: transparentize(map-get($colour, white), 0.3);
   color: map-get($colour, dark-gray);
-  margin: 20px auto;
+  font-size: 1.2em;
+  margin: 40px auto;
   max-width: 600px;
   opacity: 0;
   padding: 20px;
-  transition: opacity 1s;
+  text-align: left;
+  transition: opacity 0.2s;
+
+  @include bp(medium) {
+    font-size: 2em;
+  }
+
+  @include bp(large) {
+    border-radius: 2px;
+  }
 
   .vision-box__item--open & {
-    background: transparentize(map-get($colour, white), 0.3);
-    border: 4px solid map-get($colour, dark-gray);
-    border-radius: 2px;
     opacity: 1;
+  }
+
+  p {
+    line-height: 150%;
+    margin: 0 0 1em;
+
+    &:last-child { margin-bottom: 0; }
   }
 }
 
 .vision-box__close {
   @include arrow-back(-1px);
-  left: 15px;
-  color: map-get($colour, white);
   border: 2px solid map-get($colour, white);
-  position: absolute;
-  top: 15px;
+  color: map-get($colour, white);
+  font-size: initial;
+  letter-spacing: 3px;
+  margin-top: 15px;
+  padding: 12px 10px 10px 5px;
+  position: fixed;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 3px;
+  top: 25vh;
   transition: color 0.2s, background 0.2s;
-  padding: 12px 10px 10px 5px;
+  display: none;
+
+  .vision-box__item--open & {
+    display: block;
+  }
+
+  @include bp(medium) {
+    left: 5px;
+    margin-left: 25%;
+    top: 15px;
+  }
+
+  @include bp(large) {
+    left: 15px;
+    margin-left: 20%;
+  }
 
   &:hover {
     background: map-get($colour, white);

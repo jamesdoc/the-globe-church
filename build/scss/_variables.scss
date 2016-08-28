@@ -6,3 +6,9 @@ $colour: (
   yellow: rgb(199, 176, 74),
   green: rgb(135, 195, 166)
 );
+
+$breakpoints: (
+  small: 420px,
+  medium: 720px,
+  large: 1000px
+);

@@ -1,18 +1,105 @@
 .nav-drawer {
-  width: 20%;
-  padding: 20px;
   box-sizing: border-box;
   background: map-get($colour, dark-gray);
   color: white;
+  padding: 10px 20px;
+  width: 100%;
+  height: 25vh;
+  transition: height 1s;
+
+  &--open {
+    height: 100vh;
+  }
+
+  @include bp(medium) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-between;
+    padding: 20px;
+    width: 25%;
+  }
+
+  @include bp(large) {
+    width: 20%;
+  }
+}
+
+.nav-drawer__banner {
+  align-items: center;
   display: flex;
-  flex-direction: column;
+  height: 100%;
   justify-content: space-between;
+  transition: height 1s;
+
+  .nav-drawer--open & {
+    height: 10%;
+  }
+
+  @include bp(medium) {
+    height: auto;
+    display: block;
+  }
+}
+
+
+.nav-drawer__menu-toggle {
+  color: white;
+  display: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid white;
+  padding: 8px 4px 6px;
+  transition: color 0.2s, background 0.2s;
+
+  &:hover {
+    background: map-get($colour, white);
+    color: map-get($colour, orange);
+  }
+
+  @include bp(medium) {
+    display: none;
+  }
+}
+
+.nav-drawer__logo {
+  text-align: left;
+  max-width: 80%;
+  @include bp(medium) {
+    max-width: auto;
+    padding: 0;
+  }
+}
+
+.nav-drawer__logo__img {
+  max-width: 70%;
+  width: 100%;
+
+  @include bp(medium) {
+    max-width: 100%;
+  }
+}
+
+.nav-drawer__togglable {
+  display: none;
+
+  .nav-drawer--open & {
+    display: block;
+  }
+
+  @include bp(medium) {
+    display: block;
+  }
 }
 
 .nav-drawer__nav {
   list-style: none;
   padding: 0;
   margin: 20px 0 0;
+
+  .nav-drawer--open & {
+    margin: 40px 0 0;
+  }
 }
 
 .nav-drawer__nav__item {
@@ -54,5 +141,65 @@
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+
+
+
+
+.nav-drawer__menu-toggle__icon {
+  margin-left: 5px;
+  height: 16px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .3s ease-in-out;
+  width: 16px;
+
+  .no-flexbox & {
+    display: inline-block;
+  }
+
+  span {
+    background-color: map-get($colour, white);
+    height: 2px;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    width: 100%;
+
+    .nav-drawer__menu-toggle:hover & {
+      background-color: map-get($colour, orange);
+    }
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 6px;
+    }
+
+    &:nth-child(4) {
+      top: 12px;
+    }
+
+    .nav-drawer--open &:nth-child(1),
+    .nav-drawer--open &:nth-child(4) {
+      left: 50%;
+      top: 7px;
+      width: 0%;
+    }
+
+    .nav-drawer--open &:nth-child(2) {
+      transform: rotate(45deg);
+    }
+
+    .nav-drawer--open &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
   }
 }
