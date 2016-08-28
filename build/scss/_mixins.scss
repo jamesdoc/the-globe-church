@@ -1,0 +1,40 @@
+@mixin font-stack {
+  color: map-get($colour, dark-gray);
+  font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+@mixin arrow-base {
+  border: 4px solid transparent;
+  content: '';
+  display: inline-block;
+  position: relative;
+}
+
+@mixin arrow-back($top-offset: 0) {
+  &::before {
+    @include arrow-base;
+    border-right-color: currentColor;
+    margin-right: 6px;
+    top: $top-offset;
+  }
+}
+
+@mixin arrow-forward($top-offset: 0) {
+  &::after {
+    @include arrow-base;
+    border-left-color: currentColor;
+    margin-left: 6px;
+    top: $top-offset;
+  }
+}

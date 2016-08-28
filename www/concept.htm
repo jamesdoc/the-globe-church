@@ -1,0 +1,311 @@
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <style>
+    html, body { -webkit-font-smoothing: antialiased; font-smoothing: antialiased; margin: 0; padding: 0; font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;}
+    .container {
+      width: 100%;
+      display: flex;
+      height: 100%;
+      color: rgba(41, 42, 56, 1);
+  }
+    nav {
+      width: 20%;
+      padding: 20px;
+      box-sizing: border-box;
+      background: rgba(41, 42, 56, 1);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .main-nav {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+    }
+
+    .main-nav li {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 1px solid rgba(209, 98, 78, 1);
+    }
+
+    .main-nav a {
+      color: white;
+      padding: 20px 5px;
+      transition: padding 0.2s, color 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .main-nav a:hover {
+      color: rgba(209, 98, 78, 1);
+      padding-left: 20px;
+    }
+
+    .nav__advert {
+      border: 1px solid rgba(188, 164, 68, 1);
+      padding: 5px 10px;
+      background: rgba(62, 52, 13, 0.6);
+    }
+
+    .nav__advert p {
+      line-height: 1.4em;
+      margin: 5px 0;
+    }
+
+    .nav__advert a {
+      color: rgba(188, 165, 70, 1);
+      text-decoration: none;
+    }
+
+    .nav__advert a:hover {
+      text-decoration: underline;
+    }
+
+    .mission-box {
+      display: flex;
+      width: 80%;
+    }
+
+    .mission-box--active {}
+
+    .mission-box__item__link {
+      color: white;
+      padding: 10px;
+      opacity: 1;
+      transition: opacity 0.5s;
+      text-decoration: none;
+    }
+
+
+    .mission-box__item {
+      width: 33.33%;
+      transition: width 1s, opacity 0.3s;
+      z-index: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .mission-box--active .mission-box__item {
+      width: 0;
+    }
+
+    .mission-box--active .mission-box__item a {
+      opacity: 0;
+    }
+
+    .mission-box--active .mission-box__item--open {
+      width: 100%;
+      z-index: 1;
+    }
+
+    .mission-box--active .mission-box__item--open a {
+      opacity: 1;
+    }
+
+    .mission-box__item--jesus {
+      background: linear-gradient(to bottom, rgba(64, 64, 82, 0.71) 0%, rgba(64, 64, 82, 0.71) 59%, rgba(0, 0, 0, 0.65) 100%), url('http://static1.squarespace.com/static/554b9edce4b07263ba128461/554ba973e4b05b941e123b52/566709c1a128e6830f38fc7b/1449593333297/DSC_0773.JPG?format=1500w') center 70% no-repeat;
+      background-size: cover;
+    }
+
+    .mission-box__item--jesus.mission-box__item--open,
+    .mission-box__item--jesus:hover {
+      background: linear-gradient(to bottom, rgba(64, 64, 82, 0.9) 0%, rgba(64, 64, 82, 0.9) 59%, rgba(0, 0, 0, 0.65) 100%), url('http://static1.squarespace.com/static/554b9edce4b07263ba128461/554ba973e4b05b941e123b52/566709c1a128e6830f38fc7b/1449593333297/DSC_0773.JPG?format=1500w') center 70% no-repeat;
+      background-size: cover;
+      opacity: 0.9;
+    }
+
+    .mission-box__item--jesus:hover span {
+      background-color: white;
+      color: rgb(64, 64, 82);
+      border-color: rgb(64, 64, 82);
+    }
+
+    .mission-box__item--people {
+      background: linear-gradient(to bottom, rgba(199, 176, 74, 0.71) 0%, rgba(199, 176, 74, 0.71) 59%, rgba(0, 0, 0, 0.65) 100%), url('http://static1.squarespace.com/static/554b9edce4b07263ba128461/554ba973e4b05b941e123b52/56670add4bf1181e81f5fd1e/1449593624443/DSC_0022.JPG?format=1500w') center center no-repeat;
+      background-size: cover;
+    }
+
+    .mission-box__item--people.mission-box__item--open,
+    .mission-box__item--people:hover {
+      background: linear-gradient(to bottom, rgba(199, 176, 74, 0.9) 0%, rgba(199, 176, 74, 0.9) 59%, rgba(0, 0, 0, 0.65) 100%), url('http://static1.squarespace.com/static/554b9edce4b07263ba128461/554ba973e4b05b941e123b52/56670add4bf1181e81f5fd1e/1449593624443/DSC_0022.JPG?format=1500w') center center no-repeat;
+      background-size: cover;
+      opacity: 0.9;
+    }
+
+    .mission-box__item--people:hover span {
+      background-color: white;
+      color: rgb(199, 176, 74);
+      border-color: rgb(199, 176, 74);
+    }
+
+    .mission-box__item--mission {
+      background: linear-gradient(to bottom, rgba(135, 195, 166, 0.71) 0%, rgba(135, 195, 166, 0.71) 59%, rgba(0, 0, 0, 0.65) 100%), url('/assets/images/mission.jpg') center right no-repeat;
+      background-size: cover;
+    }
+
+    .mission-box__item--mission.mission-box__item--open,
+    .mission-box__item--mission:hover {
+      background: linear-gradient(to bottom, rgba(135, 195, 166, 0.9) 0%, rgba(135, 195, 166, 0.9) 59%, rgba(0, 0, 0, 0.65) 100%), url('/assets/images/mission.jpg') center right no-repeat;
+      background-size: cover;
+      opacity: 0.9;
+    }
+
+    .mission-box__item--mission:hover span {
+      background-color: white;
+      color: rgb(135, 195, 166);
+      border-color: rgb(135, 195, 166);
+    }
+
+    .mission-box__item__title {
+      text-transform: uppercase;
+      line-height: 150%;
+      letter-spacing: 3px;
+      max-width: 220px;
+      margin: 0 auto;
+    }
+
+    .mission-box__item__title span {
+      display: table;
+      border: 2px solid white;
+      padding: 6px 15px 2px;
+      clear: both;
+      margin: 0 auto;
+      line-height: 1em;
+      transition: color 0.1s, border 0.1s;
+    }
+
+    .mission-box__item__core-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .mission-box--active .mission-box__item--open .mission-box__item__core-content{
+      display: block;
+      opacity: 1;
+    }
+
+
+    .mission-box__close {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 3px;
+      transition: color 0.2s;
+      color: rgba(255, 255, 255, 1);
+      border: 2px solid white;
+      padding: 10px 10px 10px 5px;
+      opacity: 0;
+    }
+
+    .mission-box__close:hover {
+      color: rgba(207, 97, 77, 1);
+    }
+
+    .mission-box__close::before {
+      border: 4px solid transparent;
+      border-right-color: currentColor;
+      content: '';
+      display: inline-block;
+      margin-right: 6px;
+      position: relative;
+      top: -2px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <nav>
+      <img src="/assets/images/logo.png" />
+      <ul class="main-nav">
+        <li><a href="#">About</a></li>
+        <li><a href="#">When &amp; Where</a></li>
+        <li><a href="#">Preaching</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+
+      <div class="nav__advert">
+        <p>Join us this Sunday, 4pm at 140-148 Borough High Street.</p>
+        <p><a href="#">View on a map</a></p>
+        <p><a href="#">Find out more</a></p>
+      </div>
+    </nav>
+
+    <div class="mission-box">
+
+      <div href="#" class="mission-box__item mission-box__item--jesus">
+        <a href="#" class="mission-box__item__link">
+          <h1 class="mission-box__item__title">The globe church is all about <span>Jesus</span></h1>
+
+          <div class="mission-box__item__core-content">
+            <a href="#" class="mission-box__close js-mission-box__close">Back</a>
+            This text is hidden until active
+          </div>
+        </a>
+      </div>
+
+      <div class="mission-box__item mission-box__item--people" href="#">
+        <a href="#" class="mission-box__item__link">
+          <h1 class="mission-box__item__title">Made up of all sorts of <span>people</span></h1>
+
+          <div class="mission-box__item__core-content">
+            <a href="#" class="mission-box__close js-mission-box__close">Back</a>
+            This text is hidden until active
+          </div>
+        </a>
+      </div>
+
+      <div href="#" class="mission-box__item mission-box__item--mission">
+        <a href="#" class="mission-box__item__link">
+          <h1 class="mission-box__item__title">Involved in the greatest <span>mission</span></h1>
+
+          <div class="mission-box__item__core-content">
+            <a href="#" class="mission-box__close js-mission-box__close">Back</a>
+            <h2>Bankside</h2>
+            <h2>Londonwide</h2>
+            <h2>Nationwide</h2>
+            <h2>Worldwide</h2>
+          </div>
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+
+</body>
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script>
+  $('.mission-box__item').on('click', function(e) {
+    e.preventDefault();
+    $(this).addClass('mission-box__item--open');
+    $('.mission-box').addClass('mission-box--active');
+  });
+
+  $('.js-mission-box__close').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $('.mission-box__item--open').removeClass('mission-box__item--open');
+    $('.mission-box').removeClass('mission-box--active');
+  });
+  </script>
+
+</html>

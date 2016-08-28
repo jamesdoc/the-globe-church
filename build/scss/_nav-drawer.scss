@@ -1,0 +1,58 @@
+.nav-drawer {
+  width: 20%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: map-get($colour, dark-gray);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-drawer__nav {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.nav-drawer__nav__item {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid map-get($colour, orange);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.nav-drawer__nav__link {
+  display: block;
+  color: map-get($colour, white);
+  padding: 20px 5px;
+  transition: padding 0.2s, color 0.2s;
+  text-decoration: none;
+
+  &:hover {
+    color: map-get($colour, orange);
+    padding-left: 20px;
+  }
+}
+
+.nav-drawer__advert {
+  border: 1px solid map-get($colour, yellow);
+  line-height: 1.4em;
+  padding: 10px 10px 5px;
+  background: transparentize(map-get($colour, yellow), 0.6);
+}
+
+.nav-drawer__advert__link {
+  @include arrow-forward;
+  color: map-get($colour, yellow);
+  display: block;
+  margin: 5px 0;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

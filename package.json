@@ -1,0 +1,17 @@
+{
+  "name": "the-globe-church",
+  "version": "0.0.1",
+  "description": "The Globe Church website",
+  "scripts": {
+    "watch": "build/watch",
+    "build:css": "build/build-css"
+  },
+  "author": "James Doc",
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "cssmin": "latest",
+    "node-sass": "^3.8.0",
+    "nodemon": "^1.10.2",
+    "postcss-cli": "^2.5.2"
+  }
+}

@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+
+@import 'nav-drawer';
+@import 'vision-box';
+
+@import 'https://fonts.googleapis.com/css?family=Josefin+Sans';
+
+html, body {
+  @include font-stack;
+  font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}

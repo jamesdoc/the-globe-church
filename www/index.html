@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>The Globe Church</title>
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="nav-drawer">
+        <header class="nav-drawer__logo">
+          <a href="/" title="Go to homepage">
+            <img alt="The Globe Church" src="/assets/images/logo.png" />
+          </a>
+        </header>
+
+        <ul class="nav-drawer__nav">
+          <li class="nav-drawer__nav__item">
+            <a href="#" class="nav-drawer__nav__link">About</a>
+          </li>
+          <li class="nav-drawer__nav__item">
+            <a href="#" class="nav-drawer__nav__link">When &amp; Where</a>
+          </li>
+          <li class="nav-drawer__nav__item">
+            <a href="#" class="nav-drawer__nav__link">Preaching</a>
+          </li>
+          <li class="nav-drawer__nav__item">
+            <a href="#" class="nav-drawer__nav__link">Blog</a>
+          </li>
+        </ul>
+
+        <div class="nav-drawer__advert">
+          <p class="nav-drawer__advert__body">Join us this Sunday, 4pm at 140-148 Borough High Street.</p>
+          <a href="#" class="nav-drawer__advert__link">View on a map</a>
+          <a href="#" class="nav-drawer__advert__link">Find out more</a>
+        </div>
+      </div>
+
+      <div class="vision-box">
+        <div class="vision-box__item vision-box__item--jesus js-vision-box__item">
+          <span class="vision-box__item__link">
+            <h1 class="vision-box__item__title">The globe church is all about<strong>Jesus</strong></h1>
+
+            <div class="vision-box__item__core-content">
+              <a href="#" class="vision-box__close js-vision-box__close">Back</a>
+              This text is hidden until active
+            </div>
+          </span>
+        </div>
+
+        <div class="vision-box__item vision-box__item--people js-vision-box__item">
+          <span class="vision-box__item__link">
+            <h1 class="vision-box__item__title">Made up of all sorts of<strong>people</strong></h1>
+
+            <div class="vision-box__item__core-content">
+              <a href="#" class="vision-box__close js-vision-box__close">Back</a>
+              This text is hidden until active
+            </div>
+          </span>
+        </div>
+
+        <div class="vision-box__item vision-box__item--mission js-vision-box__item">
+          <span class="vision-box__item__link">
+            <h1 class="vision-box__item__title">Involved in the greatest<strong>mission</strong></h1>
+
+            <div class="vision-box__item__core-content">
+              <a href="#" class="vision-box__close js-vision-box__close">Back</a>
+              <h2>Bankside</h2>
+              <h2>Londonwide</h2>
+              <h2>Nationwide</h2>
+              <h2>Worldwide</h2>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <script>
+  // Temp: Will be replaced with vanilla JS when there is spare time!
+  var visionBox = $('.vision-box');
+  $('.js-vision-box__item').on('click', function(e) {
+    e.preventDefault();
+    $('.vision-box__item').addClass('vision-box__item--closed').removeClass('vision-box__item--open');
+    $(this).addClass('vision-box__item--open').removeClass('vision-box__item--closed');
+    visionBox.addClass('vision-box--active');
+  });
+
+  $('.js-vision-box__close').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $('.vision-box__item--open').removeClass('vision-box__item--open');
+    $('.vision-box__item--closed').removeClass('vision-box__item--closed');
+    visionBox.removeClass('vision-box--active');
+  });
+  </script>
+
+</html>

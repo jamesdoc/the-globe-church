@@ -1,0 +1,135 @@
+@mixin vision-box-panel($panel-color, $image, $bg-position: center center) {
+  background: linear-gradient(
+                to bottom,
+                transparentize($panel-color, 0.3) 0%,
+                transparentize($panel-color, 0.3) 60%,
+                rgba(0, 0, 0, 0.65) 100%
+              ),
+              url($image) $bg-position no-repeat;
+  background-size: cover;
+
+  &:hover,
+  &.vision-box__item--open {
+    background: linear-gradient(
+                  to bottom,
+                  transparentize($panel-color, 0.1) 0%,
+                  transparentize($panel-color, 0.1) 60%,
+                  rgba(0, 0, 0, 0.65) 100%
+                ),
+                url($image) $bg-position no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+
+    strong {
+      background-color: white;
+      color: $panel-color;
+      border-color: $panel-color;
+    }
+  }
+}
+
+.vision-box {
+  display: flex;
+  width: 80%;
+}
+
+.vision-box__item {
+  color: map-get($colour, white);
+  cursor: pointer;
+  padding-top: 33%;
+  position: relative;
+  text-align: center;
+  transition: width 1s, opacity 0.3s, padding-top 1s;
+  width: 33.33%;
+  z-index: 0;
+
+  &--closed {
+    width: 0;
+  }
+
+  &--open {
+    width: 100%;
+    padding-top: 20px;
+  }
+
+  &--jesus {
+    @include vision-box-panel(map-get($colour, blue), '/assets/images/jonty.jpg', 40% center);
+  }
+
+  &--people {
+    @include vision-box-panel(map-get($colour, yellow), '/assets/images/people.jpg');
+  }
+
+  &--mission {
+    @include vision-box-panel(map-get($colour, green), '/assets/images/mission.jpg', center right);
+  }
+}
+
+.vision-box__item__link {
+  color: map-get($colour, white);
+  display: inherit;
+  padding: 10px;
+  opacity: 1;
+  transition: opacity 0.5s;
+  text-decoration: none;
+}
+
+.vision-box__item__title {
+  font-size: 2em;
+  line-height: 150%;
+  letter-spacing: 3px;
+  margin: 0 auto;
+  max-width: 220px;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+  opacity: 1;
+
+  .vision-box__item--closed & {
+    opacity: 0;
+  }
+
+  span {
+    border: 2px solid white;
+    clear: both;
+    display: table;
+    line-height: 1em;
+    margin: 0 auto;
+    padding: 6px 15px 2px;
+    transition: color 0.1s, border 0.1s;
+  }
+}
+
+.vision-box__item__core-content {
+  color: map-get($colour, dark-gray);
+  margin: 20px auto;
+  max-width: 600px;
+  opacity: 0;
+  padding: 20px;
+  transition: opacity 1s;
+
+  .vision-box__item--open & {
+    background: transparentize(map-get($colour, white), 0.3);
+    border: 4px solid map-get($colour, dark-gray);
+    border-radius: 2px;
+    opacity: 1;
+  }
+}
+
+.vision-box__close {
+  @include arrow-back(-1px);
+  left: 15px;
+  color: map-get($colour, white);
+  border: 2px solid map-get($colour, white);
+  position: absolute;
+  top: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 3px;
+  transition: color 0.2s, background 0.2s;
+  padding: 12px 10px 10px 5px;
+
+  &:hover {
+    background: map-get($colour, white);
+    color: map-get($colour, orange);
+  }
+}
