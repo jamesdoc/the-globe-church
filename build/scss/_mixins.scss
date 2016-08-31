@@ -44,3 +44,19 @@
     top: $top-offset;
   }
 }
+
+@mixin boxed-link() {
+  border: 2px solid map-get($colour, white);
+  color: map-get($colour, white);
+  font-size: initial;
+  letter-spacing: 3px;
+  padding: 12px 10px 10px 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+
+  &:hover {
+    background: map-get($colour, white);
+    color: map-get($colour, orange);
+  }
+}

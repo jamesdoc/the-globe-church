@@ -29,22 +29,7 @@
 }
 
 .vision-box {
-  display: flex;
-  flex-direction: column;
-  height: 75vh;
   overflow: hidden;
-  width: 100%;
-  transition: height 1s;
-
-  .nav-drawer--open + & {
-    height: 0;
-  }
-
-  @include bp(medium) {
-    flex-direction: row;
-    height: auto;
-    width: 80%;
-  }
 }
 
 .vision-box__item {
@@ -76,7 +61,8 @@
     cursor: default;
     padding-top: 20px;
     width: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   &--jesus {
@@ -160,7 +146,7 @@
   transition: opacity 0.2s;
 
   @include bp(medium) {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 
   @include bp(large) {
@@ -181,17 +167,12 @@
 
 .vision-box__close {
   @include arrow-back(-1px);
-  border: 2px solid map-get($colour, white);
-  color: map-get($colour, white);
-  font-size: initial;
-  letter-spacing: 3px;
+  @include boxed-link;
+  display: flex;
+  flex-direction: column;
   margin-top: 15px;
-  padding: 12px 10px 10px 5px;
   position: fixed;
-  text-transform: uppercase;
-  text-decoration: none;
   top: 25vh;
-  transition: color 0.2s, background 0.2s;
   display: none;
 
   .vision-box__item--open & {
@@ -207,10 +188,5 @@
   @include bp(large) {
     left: 15px;
     margin-left: 20%;
-  }
-
-  &:hover {
-    background: map-get($colour, white);
-    color: map-get($colour, orange);
   }
 }

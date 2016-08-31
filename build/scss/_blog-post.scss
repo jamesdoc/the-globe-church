@@ -1,0 +1,117 @@
+.blog-post {
+  background: transparentize(map-get($colour, dark-gray), 0.2);
+  color: map-get($colour, white);
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+
+  &--teaser{
+    background-size: cover;
+    background-position: center center;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+  }
+}
+
+.blog-post__teaser-image {
+  display: block;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.blog-post__wrapper-link {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  display: block;
+  background-color: transparentize(map-get($colour, orange), 0.2);
+  transition: background-color 0.2s, backdrop-filter 0.2s, padding 1s, margin 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  padding: 20px;
+  margin: 0 0 0 50%;
+  height: 100%;
+
+  &:hover {
+    background-color: transparentize(map-get($colour, dark-gray), 0.2);
+    backdrop-filter: blur(2px);
+    margin: 0;
+    padding-left: calc(50% + 20px);
+  }
+
+  .blog-post--teaser:nth-child(2n+1) & {
+    margin: 0 50% 0 0;
+
+    &:hover {
+      margin: 0;
+      padding: 20px calc(50% + 20px) 20px 20px;
+    }
+  }
+
+  .blog-post--teaser:nth-child(4n+2) & {
+    background-color: transparentize(map-get($colour, blue), 0.2);
+
+    &:hover {
+      background-color: transparentize(map-get($colour, dark-gray), 0.2);
+    }
+  }
+
+  .blog-post--teaser:nth-child(4n+3) & {
+    background-color: transparentize(map-get($colour, yellow), 0.2);
+
+    &:hover {
+      background-color: transparentize(map-get($colour, dark-gray), 0.2);
+    }
+  }
+
+  .blog-post--teaser:nth-child(4n+4) & {
+    background-color: transparentize(map-get($colour, green), 0.2);
+
+    &:hover {
+      background-color: transparentize(map-get($colour, dark-gray), 0.2);
+    }
+  }
+
+}
+
+.blog-post__title {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.blog-post__snippet {
+  margin: 20px 0;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  letter-spacing: 1px;
+}
+
+.blog-post__link {
+  @include arrow-forward(-1px);
+  @include boxed-link;
+  border-color: map-get($colour, white);
+  color: map-get($colour, white);
+  display: inline-block;
+  padding: 12px 10px 10px;
+  transition: border 0.2s, color 0.2s, background 0.2s;
+
+  .blog-post__wrapper-link:hover & {
+    background: map-get($colour, white);
+    color: map-get($colour, orange);
+    border-color: map-get($colour, orange);
+  }
+}

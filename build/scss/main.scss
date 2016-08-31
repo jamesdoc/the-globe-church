@@ -2,6 +2,7 @@
 @import 'mixins';
 @import 'reset';
 
+@import 'blog-post';
 @import 'nav-drawer';
 @import 'vision-box';
 
@@ -9,6 +10,7 @@
 
 html, body {
   @include font-stack;
+  -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   margin: 0;
   padding: 0;
@@ -28,5 +30,35 @@ img {
 
   @include bp(medium) {
     flex-direction: row;
+  }
+}
+
+.main {
+  background-color: transparentize(map-get($colour, dark-gray), 0.8);
+  display: flex;
+  height: 75vh;
+  width: 100%;
+  transition: height 1s;
+
+  .nav-drawer--open + & {
+    height: 0;
+  }
+
+  @include bp(medium) {
+    flex-direction: row;
+    height: auto;
+    width: 80%;
+  }
+
+  &--blog-grid {
+    flex-wrap: wrap;
+
+    // @include bp(medium) {
+    //   margin-left: 25%;
+    // }
+
+    // @include bp(large) {
+    //   margin-left: 20%
+    // }
   }
 }
