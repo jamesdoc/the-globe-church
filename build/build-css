@@ -1,1 +1,1 @@
-node-sass --include-path scss build/scss/main.scss | postcss --use autoprefixer | cssmin > www/assets/css/main.css
+node-sass --include-path scss build/scss/main.scss | postcss --use autoprefixer | cssmin > assets/css/main.css

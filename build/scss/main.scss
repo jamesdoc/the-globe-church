@@ -48,6 +48,11 @@ img {
     flex-direction: row;
     height: auto;
     width: 80%;
+    margin-left: 25%;
+  }
+
+  @include bp(large) {
+    margin-left: 20%;
   }
 
   &--blog-grid {
