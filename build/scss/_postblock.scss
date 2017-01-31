@@ -1,0 +1,109 @@
+.postblock {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  &:last-child {
+    padding-bottom: 20px;
+  }
+}
+
+.postblock__quote {
+  border-left: 5px solid map-get($colour, orange);
+  padding-left: 20px;
+  margin-right: 25px;
+
+  cite {
+    @include cite-text();
+  }
+}
+
+.postblock--video {
+  padding: 0;
+}
+
+.postblock--video__container {
+  display: block;
+  height: 0;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  width: 100%;
+
+  @include bp(large) {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+  }
+
+  iframe,
+  object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.postblock--video__caption {
+  @include caption-text();
+  color: lighten(map-get($colour, dark-gray), 30);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.postblock--image {
+  &.full-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &.pull-left,
+  &.pull-right {
+    @include bp(small) {
+      background-color: transparentize(map-get($colour, blue), .2);
+      color: map-get($colour, white);
+      padding-left: 0;
+      padding-right: 0;
+      width: 45%;
+    }
+  }
+
+  &.pull-left {
+    @include bp(small) {
+      float: left;
+      margin: 5px 20px 5px 10px;
+    }
+
+    @include bp(large) {
+      margin-left: -20%;
+    }
+  }
+
+  &.pull-right {
+    @include bp(small) {
+      float: right;
+      margin: 5px 10px 5px 20px;
+    }
+
+    @include bp(large) {
+      margin-right: -20%;
+    }
+  }
+}
+
+.postblock--image__caption {
+  @include cite-text();
+  .full-width & {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pull-left &,
+  .pull-right & {
+    padding: 5px;
+  }
+}

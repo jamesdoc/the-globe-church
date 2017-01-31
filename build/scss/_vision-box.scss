@@ -1,24 +1,26 @@
 @mixin vision-box-panel($panel-color, $image, $bg-position: center center) {
-  background: linear-gradient(
+  background-image: linear-gradient(
                 to bottom,
-                transparentize($panel-color, 0.3) 0%,
-                transparentize($panel-color, 0.3) 60%,
-                rgba(0, 0, 0, 0.65) 100%
+                transparentize($panel-color, .3) 0%,
+                transparentize($panel-color, .3) 60%,
+                rgba(0, 0, 0, .65) 100%
               ),
-              url($image) $bg-position no-repeat;
+              url($image);
+  background-position: $bg-position;
+  background-repeat: no-repeat;
   background-size: cover;
 
   &:hover,
   &.vision-box__item--open {
-    background: linear-gradient(
+    background-image: linear-gradient(
                   to bottom,
-                  transparentize($panel-color, 0.1) 0%,
-                  transparentize($panel-color, 0.1) 60%,
-                  rgba(0, 0, 0, 0.65) 100%
+                  transparentize($panel-color, .1) 0%,
+                  transparentize($panel-color, .1) 60%,
+                  rgba(0, 0, 0, .65) 100%
                 ),
-                url($image) $bg-position no-repeat;
+                url($image);
     background-size: cover;
-    opacity: 0.9;
+    opacity: .9;
 
     strong {
       background-color: white;
@@ -40,7 +42,7 @@
   overflow: hidden;
   position: relative;
   text-align: center;
-  transition: width 1s, height 1s, opacity 0.3s, padding-top 1s;
+  transition: width 1s, height 1s, opacity .3s, padding-top 1s;
   width: 100%;
   z-index: 0;
 
@@ -67,15 +69,15 @@
   }
 
   &--jesus {
-    @include vision-box-panel(map-get($colour, blue), '/assets/images/jonty.jpg', 40% center);
+    @include vision-box-panel(map-get($colour, blue), '/assets/img/jonty.jpg', 40% center);
   }
 
   &--people {
-    @include vision-box-panel(map-get($colour, yellow), '/assets/images/people.jpg');
+    @include vision-box-panel(map-get($colour, yellow), '/assets/img/people.jpg');
   }
 
   &--mission {
-    @include vision-box-panel(map-get($colour, green), '/assets/images/mission.jpg', center right);
+    @include vision-box-panel(map-get($colour, green), '/assets/img/mission.jpg', center right);
   }
 }
 
@@ -84,7 +86,7 @@
   display: inherit;
   opacity: 1;
   position: absolute;
-  transition: opacity 0.5s;
+  transition: opacity .5s;
   text-decoration: none;
   width: 100%;
 
@@ -107,7 +109,7 @@
   opacity: 1;
   position: relative;
   text-transform: uppercase;
-  transition: opacity 0.3s;
+  transition: opacity .3s;
 
   @include bp(medium) {
     font-size: 2em;
@@ -125,18 +127,19 @@
   }
 
   strong {
-    border: 2px solid white;
+    border: 2px solid map-get($colour, white);
     clear: both;
     display: table;
     line-height: 1em;
     margin: 0 auto;
     padding: 6px 15px 2px;
-    transition: color 0.1s, border 0.1s;
+    transition: color .1s, border .1s;
   }
 }
 
 .vision-box__item__core-content {
-  background: transparentize(map-get($colour, white), 0.3);
+  @include body-text;
+  background-color: transparentize(map-get($colour, white), .3);
   color: map-get($colour, dark-gray);
   font-size: 1.2em;
   margin: 40px auto;
@@ -144,11 +147,7 @@
   opacity: 0;
   padding: 20px;
   text-align: left;
-  transition: opacity 0.2s;
-
-  @include bp(medium) {
-    font-size: 1.5em;
-  }
+  transition: opacity .2s;
 
   @include bp(large) {
     border-radius: 2px;
@@ -158,27 +157,15 @@
     opacity: 1;
   }
 
-  p {
-    line-height: 150%;
-    margin: 0 0 1em;
-
-    &:last-child { margin-bottom: 0; }
-  }
 }
 
 .vision-box__close {
   @include arrow-back(-1px);
   @include boxed-link;
-  display: flex;
-  flex-direction: column;
+  display: none;
   margin-top: 15px;
   position: fixed;
   top: 25vh;
-  display: none;
-
-  .vision-box__item--open & {
-    display: block;
-  }
 
   @include bp(medium) {
     left: 5px;
@@ -190,4 +177,9 @@
     left: 15px;
     margin-left: 20%;
   }
+
+  .vision-box__item--open & {
+    display: block;
+  }
+
 }

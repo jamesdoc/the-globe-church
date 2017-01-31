@@ -1,0 +1,78 @@
+<perch:if exists="image">
+  <div class="blog-post__bgimage">
+    <img src="<perch:blog id="image" type="image" width="320" height="240" crop="true" label="Image" order="4" />" alt="" />
+  </div>
+</perch:if>
+
+<div class="blog-post__container">
+
+  <div class="blog-post__header">
+
+    <h1 class="blog-post__title">
+      <perch:blog id="postTitle"
+                  type="text"
+                  label="Title"
+                  required="true"
+                  size="xl autowidth"
+                  order="1" />
+    </h1>
+
+    <p class="blog-post__header__meta">
+      <time class="dt-published" datetime="<perch:blog id="postDateTime" type="date" label="Date" time="true" format="Y-m-d H:i:s" divider-before="Publishing" />">
+        <perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" />
+      </time>
+
+      <perch:if exists="authorGivenName">
+        by <span class="p-author h-card"><perch:blog id="authorGivenName" type="hidden" /> <perch:blog id="authorFamilyName" type="hidden" /></span>
+      </perch:if>
+    </p>
+
+  </div>
+
+
+  <div class="blog-post__post">
+    <perch:blocks order="3">
+      <perch:block type="text" label="Text">
+        <div class="postblock">
+          <perch:blog id="text" type="textarea" markdown="true" editor="markitup" size="s" label="Text" />
+        </div>
+      </perch:block>
+
+      <perch:block type="pullquote" label="Quote">
+        <div class="postblock">
+          <blockquote class="postblock__quote">
+            <perch:blog id="quote" type="textarea" markdown="true" size="xs" label="Quote" />
+            <cite>&mdash; <perch:blog id="cite" type="smarttext" label="By" /></cite>
+          </blockquote>
+        </div>
+      </perch:block>
+
+      <perch:block type="youtube" label="Youtube Video">
+        <figure class="postblock postblock--video">
+          <span class="postblock--video__container">
+            <iframe src='https://www.youtube.com/embed/<perch:blog id="youtubeid" type="text" label="YouTube video ID" />' frameborder="0" allowfullscreen></iframe>
+          </span>
+          <figcaption class="postblock--video__caption">
+            <perch:blog id="caption" type="smarttext" label="Caption" />
+          </figcaption>
+        </figure>
+      </perch:block>
+
+      <perch:block type="image" label="Image">
+        <figure class="postblock postblock--image <perch:blog id="class" type="select" options="Inline|inline,Pull left|pull-left,Pull right|pull-right,Full width|full-width" label="Alignment" order="2" />">
+          <img  alt='<perch:blog id="caption" type="smarttext" label="Caption" />'
+                src='<perch:blog id="image" type="image" width="360" density="2" label="Image" order="1" />' class="img-responsive" />
+          <figcaption class="postblock--image__caption">
+            <perch:blog id="caption" type="smarttext" label="Caption" />
+          </figcaption>
+        </figure>
+      </perch:block>
+    </perch:blocks>
+
+  </div>
+
+</div>
+
+
+<perch:blog id="excerpt" type="textarea" label="Excerpt" markdown="false" order="3" suppress="true" size="s" />
+<perch:blog id="image" type="image" width="50" height="50" crop="true" suppress="true" />

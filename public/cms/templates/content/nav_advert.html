@@ -1,0 +1,14 @@
+<div class="nav-drawer__advert nav-drawer__togglable">
+  <perch:if exists="navad_link">
+    <p class="nav-drawer__advert__body">
+      <perch:content id="navad_text" type="text" label="Advert text" />
+    </p>
+    <a href='<perch:content id="navad_link" type="text" label="Advert link" />' class="nav-drawer__advert__link">
+      <perch:content id="navad_cta" type="text" label="Advert call to action" />
+    </a>
+  <perch:else />
+    <p class="nav-drawer__advert__body">Join us this Sunday, 4pm at 140-148 Borough High Street.</p>
+    <a class="nav-drawer__advert__link" href="https://goo.gl/maps/DUSNZBjZXpD2" target="_blank">View on a map</a>
+    <a href="#" class="nav-drawer__advert__link">Find out more</a>
+  </perch:if>
+</div>

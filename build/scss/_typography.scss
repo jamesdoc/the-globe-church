@@ -1,0 +1,53 @@
+@import 'https://fonts.googleapis.com/css?family=Josefin+Sans';
+
+@mixin font-stack {
+  color: map-get($colour, dark-gray);
+  font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+@mixin body-text {
+  font-size: 1.2em;
+
+  @include bp(medium) {
+    font-size: 1.5em;
+  }
+
+  p {
+    line-height: 150%;
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@mixin caption-text {
+  font-size: .675em;
+  font-style: italic;
+  line-height: 125%;
+}
+
+@mixin cite-text {
+  font-size: .825em;
+  font-style: italic;
+  line-height: 125%;
+}
+
+.globe-oh {
+  font-size: 0.825em;
+  display: inline-block;
+  position: relative;
+  top: -3px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    background: black;
+    height: 2px;
+    width: 15px;
+    bottom: 6px;
+    display: inline-block;
+    left: 3px;
+  }
+}

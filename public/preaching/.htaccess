@@ -1,0 +1,6 @@
+Options +FollowSymlinks -MultiViews
+RewriteEngine On
+
+RewriteRule ^play/([0-9a-z-]*)/([0-9]+).*?$ /preaching/play.php?show=$1&ep=$2
+
+RewriteRule ^series/([a-zA-Z0-9-/]+)$ /preaching/series.php?s=$1 [L]

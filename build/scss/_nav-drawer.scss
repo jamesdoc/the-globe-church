@@ -1,6 +1,6 @@
 .nav-drawer {
   box-sizing: border-box;
-  background: map-get($colour, dark-gray);
+  background-color: map-get($colour, dark-gray);
   color: white;
   padding: 10px 20px;
   width: 100%;
@@ -55,7 +55,7 @@
   transition: color 0.2s, background 0.2s;
 
   &:hover {
-    background: map-get($colour, white);
+    background-color: map-get($colour, white);
     color: map-get($colour, orange);
   }
 
@@ -120,6 +120,7 @@
   padding: 20px 5px;
   transition: padding 0.2s, color 0.2s;
   text-decoration: none;
+  line-height: 125%;
 
   &:hover {
     color: map-get($colour, orange);
@@ -131,7 +132,7 @@
   border: 1px solid map-get($colour, yellow);
   line-height: 1.4em;
   padding: 10px 10px 5px;
-  background: transparentize(map-get($colour, yellow), 0.6);
+  background-color: transparentize(map-get($colour, yellow), 0.6);
 }
 
 .nav-drawer__advert__link {

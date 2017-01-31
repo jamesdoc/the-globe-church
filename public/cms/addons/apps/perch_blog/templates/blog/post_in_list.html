@@ -1,0 +1,38 @@
+<perch:before>
+</perch:before>
+
+  <article class="blog-post blog-post--teaser">
+    <perch:if exists="image">
+      <img class='blog-post__teaser-image'
+           src='<perch:blog id="image" type="image" />'
+           alt='<perch:blog id="postTitle" />' />
+    </perch:if>
+
+    <a href='<perch:blog id="postURL" />'
+       rel="bookmark"
+       class="blog-post__wrapper-link">
+      <h2 class="blog-post__title">
+        <perch:blog id="postTitle" />
+      </h2>
+      <p class="blog-post__snippet">
+        <perch:blog id="excerpt" />
+      </p>
+      <span class="blog-post__link">Keep reading</span>
+    </a>
+
+  </article>
+
+<perch:after>
+  <perch:if exists="paging">
+    <div class="paging">
+      Page <perch:blog id="current_page" /> of <perch:blog id="number_of_pages" />
+      <perch:blog id="page_links" encode="false" />
+      <perch:if exists="not_first_page">
+        <a href="<perch:blog id="prev_url" encode="false" />">Previous</a>
+      </perch:if>
+      <perch:if exists="not_last_page">
+        <a href="<perch:blog id="next_url" encode="false" />">Next</a>
+      </perch:if>
+  </div>
+  </perch:if>
+</perch:after>

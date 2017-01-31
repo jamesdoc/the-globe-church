@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    # Force trailing slash
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)([^/])$        /$1$2/ [L,R=301]
+
+    # Blog posts
+    RewriteRule ^blog/$ /blog/archive.php [L]
+    RewriteRule ^blog/([a-zA-Z0-9-/]+)$ /blog/post.php?s=$1 [L]
+
+</IfModule>

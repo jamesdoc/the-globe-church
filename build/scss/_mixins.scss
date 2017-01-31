@@ -1,8 +1,3 @@
-@mixin font-stack {
-  color: map-get($colour, dark-gray);
-  font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-
 @mixin bp($size) {
   @media (min-width: map-get($breakpoints, $size)) {
     @content;
@@ -56,7 +51,7 @@
   transition: color 0.2s, background 0.2s;
 
   &:hover {
-    background: map-get($colour, white);
+    background-color: map-get($colour, white);
     color: map-get($colour, orange);
   }
 }

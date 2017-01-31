@@ -1,11 +1,11 @@
 .blog-post {
-  background: transparentize(map-get($colour, dark-gray), 0.2);
+  background-color: transparentize(map-get($colour, dark-gray), .2);
   color: map-get($colour, white);
   margin: 0 auto;
   padding: 20px;
   width: 100%;
 
-  &--teaser{
+  &--teaser {
     background-size: cover;
     background-position: center center;
     padding: 0;
@@ -29,13 +29,57 @@
   width: 100%;
 }
 
+.blog-post__container {
+  @include body-text;
+  background-color: transparentize(map-get($colour, white), .3);
+  color: map-get($colour, dark-gray);
+  margin: 40px auto;
+  max-width: 600px;
+  text-align: left;
+
+  @include bp(large) {
+    border-radius: 2px;
+  }
+}
+
+.blog-post__header {
+  padding: 20px;
+}
+
+.blog-post__header__meta {
+  border-bottom: 1px map-get($colour, orange) solid;
+  padding-bottom: 10px;
+}
+
+.blog-post__bgimage {
+  background-position: center center;
+  background-size: cover;
+  filter: blur(3px);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+
+  img {
+    display: block;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
 .blog-post__wrapper-link {
   text-decoration: none;
   color: inherit;
   position: relative;
   display: block;
-  background-color: transparentize(map-get($colour, orange), 0.2);
-  transition: background-color 0.2s, backdrop-filter 0.2s, padding 1s, margin 1s;
+  background-color: transparentize(map-get($colour, orange), .2);
+  transition: background-color .2s, backdrop-filter .2s, padding 1s, margin 1s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,7 +89,7 @@
   height: 100%;
 
   &:hover {
-    background-color: transparentize(map-get($colour, dark-gray), 0.2);
+    background-color: transparentize(map-get($colour, dark-gray), .2);
     backdrop-filter: blur(2px);
     margin: 0;
     padding-left: calc(50% + 20px);
@@ -61,26 +105,26 @@
   }
 
   .blog-post--teaser:nth-child(4n+2) & {
-    background-color: transparentize(map-get($colour, blue), 0.2);
+    background-color: transparentize(map-get($colour, blue), .2);
 
     &:hover {
-      background-color: transparentize(map-get($colour, dark-gray), 0.2);
+      background-color: transparentize(map-get($colour, dark-gray), .2);
     }
   }
 
   .blog-post--teaser:nth-child(4n+3) & {
-    background-color: transparentize(map-get($colour, yellow), 0.2);
+    background-color: transparentize(map-get($colour, yellow), .2);
 
     &:hover {
-      background-color: transparentize(map-get($colour, dark-gray), 0.2);
+      background-color: transparentize(map-get($colour, dark-gray), .2);
     }
   }
 
   .blog-post--teaser:nth-child(4n+4) & {
-    background-color: transparentize(map-get($colour, green), 0.2);
+    background-color: transparentize(map-get($colour, green), .2);
 
     &:hover {
-      background-color: transparentize(map-get($colour, dark-gray), 0.2);
+      background-color: transparentize(map-get($colour, dark-gray), .2);
     }
   }
 
@@ -107,10 +151,10 @@
   color: map-get($colour, white);
   display: inline-block;
   padding: 12px 10px 10px;
-  transition: border 0.2s, color 0.2s, background 0.2s;
+  transition: border .2s, color .2s, background .2s;
 
   .blog-post__wrapper-link:hover & {
-    background: map-get($colour, white);
+    background-color: map-get($colour, white);
     color: map-get($colour, orange);
     border-color: map-get($colour, orange);
   }

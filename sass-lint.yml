@@ -1,0 +1,6 @@
+linters:
+  ColorVariable:
+    enabled: false
+  NameFormat:
+    enabled: true
+    convention: hyphenated_lowercase # or 'BEM', or a regex pattern
